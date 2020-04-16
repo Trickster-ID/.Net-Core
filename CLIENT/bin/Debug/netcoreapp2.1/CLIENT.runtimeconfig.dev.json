@@ -1,0 +1,8 @@
+{
+  "runtimeOptions": {
+    "additionalProbingPaths": [
+      "C:\\Users\\Pikri\\.dotnet\\store\\|arch|\\|tfm|",
+      "C:\\Users\\Pikri\\.nuget\\packages"
+    ]
+  }
+}

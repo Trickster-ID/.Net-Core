@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "qiyxYid3NxUTD0z0dcIxSj0+d9jvKjQlQJ7g3TyIOA0RTNSdqwql9pC61wc2w7xzszq0F+2GfRfBNIOWY9Q7nQ==",
+  "dgSpecHash": "RAh0AzONRMpMxfOusE4M2xZN3VGJ1L9QXXC9K4oqC+9qRAdNwYOczTzbEzeSUmJ81/KZ0wMzkDjDReU6scFJbQ==",
   "success": true,
   "projectFilePath": "D:\\VisualBC\\ASP.NET\\API\\API.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\Pikri\\.nuget\\packages\\dapper\\2.0.35\\dapper.2.0.35.nupkg.sha512",
     "C:\\Users\\Pikri\\.nuget\\packages\\microsoft.aspnet.webapi.client\\5.2.6\\microsoft.aspnet.webapi.client.5.2.6.nupkg.sha512",
     "C:\\Users\\Pikri\\.nuget\\packages\\microsoft.aspnetcore\\2.1.1\\microsoft.aspnetcore.2.1.1.nupkg.sha512",
     "C:\\Users\\Pikri\\.nuget\\packages\\microsoft.aspnetcore.antiforgery\\2.1.1\\microsoft.aspnetcore.antiforgery.2.1.1.nupkg.sha512",
@@ -252,7 +253,7 @@
     "C:\\Users\\Pikri\\.nuget\\packages\\system.reflection\\4.3.0\\system.reflection.4.3.0.nupkg.sha512",
     "C:\\Users\\Pikri\\.nuget\\packages\\system.reflection.emit\\4.3.0\\system.reflection.emit.4.3.0.nupkg.sha512",
     "C:\\Users\\Pikri\\.nuget\\packages\\system.reflection.emit.ilgeneration\\4.3.0\\system.reflection.emit.ilgeneration.4.3.0.nupkg.sha512",
-    "C:\\Users\\Pikri\\.nuget\\packages\\system.reflection.emit.lightweight\\4.3.0\\system.reflection.emit.lightweight.4.3.0.nupkg.sha512",
+    "C:\\Users\\Pikri\\.nuget\\packages\\system.reflection.emit.lightweight\\4.7.0\\system.reflection.emit.lightweight.4.7.0.nupkg.sha512",
     "C:\\Users\\Pikri\\.nuget\\packages\\system.reflection.extensions\\4.3.0\\system.reflection.extensions.4.3.0.nupkg.sha512",
     "C:\\Users\\Pikri\\.nuget\\packages\\system.reflection.metadata\\1.6.0\\system.reflection.metadata.1.6.0.nupkg.sha512",
     "C:\\Users\\Pikri\\.nuget\\packages\\system.reflection.primitives\\4.3.0\\system.reflection.primitives.4.3.0.nupkg.sha512",

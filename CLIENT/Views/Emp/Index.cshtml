@@ -1,0 +1,100 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Layouts/Layout.cshtml";
+}
+<!-- Trigger the modal with a button -->
+<button id="btnadd" type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal" title="Create New Employee">+</button>
+@*<a href="@Url.Action("Excel","Dept")" class="btn btn-primary"><span>Excel</span></a>
+<a href="@Url.Action("CSV","Dept")" class="btn btn-primary"><span>CSV</span></a>
+<a href="@Url.Action("Report","Dept")" class="btn btn-primary"><span>PDF</span></a>*@
+@*<button id="btnExport" type="submit" class="btn btn-primary" value="Export">Export to Excel</button>
+    <input type="submit" id="btnExport" value="Export" />*@
+
+<!-- Modal -->
+<div id="myModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <form>
+                <div class="modal-header">
+                    <h4 class="modal-title">Add Employee</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <input type="hidden" class="form-control" id="Id">
+                    </div>
+                    <div class="form-group">
+                        <label for="Name">First Nama :</label>
+                        <input class="form-control" id="FirstName" placeholder="First Name">
+                    </div>
+                    <div class="form-group">
+                        <label for="Name">Last Nama :</label>
+                        <input class="form-control" id="LastName" placeholder="Last Name">
+                    </div>
+                    <div class="form-group">
+                        <label for="Name">Department Name :</label>
+                        <div class="form-group">
+                            <select class="form-control" id="DepartmentOption" name="DepartmentId"></select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="Name">Email :</label>
+                        <input class="form-control" id="Email" placeholder="Email">
+                    </div>
+                    <div class="form-group">
+                        <label for="Name">Birth Date:</label>
+                        <input type="date" class="form-control" id="BirthDate" placeholder="Birth Date">
+                    </div>
+                    <div class="form-group">
+                        <label for="Name">Phone Number :</label>
+                        <input class="form-control" id="PhoneNumber" placeholder="Phone Number">
+                    </div>
+                    <div class="form-group">
+                        <label for="Name">Address:</label>
+                        <input class="form-control" id="Address" placeholder="Address">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button id="UpdateBtn" type="button" onclick="Edit()" class="btn btn-success">Update</button>
+                    <button id="SaveBtn" type="button" onclick="Save()" class="btn btn-success">Save</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<div class="table-responsive m-t-40">
+    <table id="Employee" class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>First Name</th>
+                <th>Department Name</th>
+                <th>Email</th>
+                <th>Birth Date</th>
+                <th>Phone Number</th>
+                <th>Address</th>
+                <th>CreateDate</th>
+                <th>UpdateDate</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+    </table>
+</div>
+
+@section scripts{
+
+    @*<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+        <script src="~/Scripts/table2excel.js"></script>
+        <script type="text/javascript">
+            function () {
+                $("#btnExport").click(function () {
+                    $("#Department").table2excel({
+                        filename: "Department.xls"
+                    });
+                });
+            }
+        </script>*@
+<script src="~/Script/Emp.js"></script>
+}

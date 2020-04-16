@@ -67,6 +67,41 @@ namespace API.Migrations
                     b.ToTable("Division");
                 });
 
+            modelBuilder.Entity("API.Model.EmpModel", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Address");
+
+                    b.Property<DateTimeOffset>("BirthDate");
+
+                    b.Property<DateTimeOffset?>("CreateDate");
+
+                    b.Property<DateTimeOffset?>("DeleteDate");
+
+                    b.Property<int>("DeptModelId");
+
+                    b.Property<string>("Email");
+
+                    b.Property<string>("FirstName");
+
+                    b.Property<bool>("IsDelete");
+
+                    b.Property<string>("LastName");
+
+                    b.Property<string>("PhoneNumber");
+
+                    b.Property<DateTimeOffset?>("UpdateDate");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("DeptModelId");
+
+                    b.ToTable("Employee");
+                });
+
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
                 {
                     b.Property<string>("Id")
@@ -233,6 +268,14 @@ namespace API.Migrations
                     b.HasOne("API.Model.DeptModel", "DeptModel")
                         .WithMany()
                         .HasForeignKey("DeptModelId");
+                });
+
+            modelBuilder.Entity("API.Model.EmpModel", b =>
+                {
+                    b.HasOne("API.Model.DeptModel", "DeptModel")
+                        .WithMany()
+                        .HasForeignKey("DeptModelId")
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
