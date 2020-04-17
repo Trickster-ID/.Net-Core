@@ -156,7 +156,7 @@ function GetById(Id) {
             $('#LastName').val(result[0].lastName);
             $('#DepartmentOption').val(result[0].deptId);
             $('#Email').val(result[0].email);
-            $('#BirthDate').val(result[0].birthDate);
+            $('#BirthDate').val(moment(result[0].birthDate).format('YYYY-MM-DD'));
             $('#PhoneNumber').val(result[0].phoneNumber);
             $('#Address').val(result[0].address);
             $('#myModal').modal('show');
@@ -202,7 +202,7 @@ function Save() {
                 Swal.fire({
                     icon: 'success',
                     potition: 'center',
-                    title: 'Department Add Successfully',
+                    title: 'Employee Add Successfully',
                     timer: 2500
                 }).then(function () {
                     table.ajax.reload();
@@ -244,7 +244,7 @@ function Edit() {
             Swal.fire({
                 icon: 'success',
                 potition: 'center',
-                title: 'Department Update Successfully',
+                title: 'Employee Update Successfully',
                 timer: 2500
             }).then(function () {
                 table.ajax.reload();
