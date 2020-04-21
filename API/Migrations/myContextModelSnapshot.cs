@@ -69,9 +69,8 @@ namespace API.Migrations
 
             modelBuilder.Entity("API.Model.EmpModel", b =>
                 {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                    b.Property<string>("Email")
+                        .ValueGeneratedOnAdd();
 
                     b.Property<string>("Address");
 
@@ -83,8 +82,6 @@ namespace API.Migrations
 
                     b.Property<int>("DeptModelId");
 
-                    b.Property<string>("Email");
-
                     b.Property<string>("FirstName");
 
                     b.Property<bool>("IsDelete");
@@ -95,7 +92,7 @@ namespace API.Migrations
 
                     b.Property<DateTimeOffset?>("UpdateDate");
 
-                    b.HasKey("Id");
+                    b.HasKey("Email");
 
                     b.HasIndex("DeptModelId");
 
@@ -124,6 +121,11 @@ namespace API.Migrations
                         .HasFilter("[NormalizedName] IS NOT NULL");
 
                     b.ToTable("AspNetRoles");
+
+                    b.HasData(
+                        new { Id = "1", Name = "Admin", NormalizedName = "ADMIN" },
+                        new { Id = "2", Name = "Employee", NormalizedName = "CUSTOMER" }
+                    );
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>

@@ -1,3 +1,8 @@
+D:\VisualBC\ASP.NET\API\obj\Debug\netcoreapp2.1\API.csproj.CoreCompileInputs.cache
+D:\VisualBC\ASP.NET\API\obj\Debug\netcoreapp2.1\API.RazorAssemblyInfo.cache
+D:\VisualBC\ASP.NET\API\obj\Debug\netcoreapp2.1\API.RazorAssemblyInfo.cs
+D:\VisualBC\ASP.NET\API\obj\Debug\netcoreapp2.1\API.AssemblyInfoInputs.cache
+D:\VisualBC\ASP.NET\API\obj\Debug\netcoreapp2.1\API.AssemblyInfo.cs
 D:\VisualBC\ASP.NET\API\bin\Debug\netcoreapp2.1\appsettings.Development.json
 D:\VisualBC\ASP.NET\API\bin\Debug\netcoreapp2.1\appsettings.json
 D:\VisualBC\ASP.NET\API\bin\Debug\netcoreapp2.1\Properties\launchSettings.json
@@ -6,11 +11,6 @@ D:\VisualBC\ASP.NET\API\bin\Debug\netcoreapp2.1\API.runtimeconfig.json
 D:\VisualBC\ASP.NET\API\bin\Debug\netcoreapp2.1\API.runtimeconfig.dev.json
 D:\VisualBC\ASP.NET\API\bin\Debug\netcoreapp2.1\API.dll
 D:\VisualBC\ASP.NET\API\bin\Debug\netcoreapp2.1\API.pdb
-D:\VisualBC\ASP.NET\API\obj\Debug\netcoreapp2.1\API.csproj.CoreCompileInputs.cache
-D:\VisualBC\ASP.NET\API\obj\Debug\netcoreapp2.1\API.RazorAssemblyInfo.cache
-D:\VisualBC\ASP.NET\API\obj\Debug\netcoreapp2.1\API.RazorAssemblyInfo.cs
-D:\VisualBC\ASP.NET\API\obj\Debug\netcoreapp2.1\API.AssemblyInfoInputs.cache
-D:\VisualBC\ASP.NET\API\obj\Debug\netcoreapp2.1\API.AssemblyInfo.cs
 D:\VisualBC\ASP.NET\API\obj\Debug\netcoreapp2.1\API.RazorTargetAssemblyInfo.cache
 D:\VisualBC\ASP.NET\API\obj\Debug\netcoreapp2.1\API.dll
 D:\VisualBC\ASP.NET\API\obj\Debug\netcoreapp2.1\API.pdb

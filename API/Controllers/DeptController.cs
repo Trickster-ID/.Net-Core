@@ -5,11 +5,13 @@ using System.Threading.Tasks;
 using API.Base;
 using API.Model;
 using API.Repository.Data;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace API.Controllers
 {
+    [Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class DeptController : BaseController<DeptModel, DeptRepository>
@@ -19,6 +21,7 @@ namespace API.Controllers
         {
             this._repository = deptRepository;
         }
+        
         [HttpPut("{Id}")]
         public async Task<ActionResult> Put(int id, DeptModel entity)
         {
@@ -47,6 +50,22 @@ namespace API.Controllers
                 return NotFound();
             }
             return Ok(get);
+        }
+        [HttpDelete("{id}")]
+        public async Task<ActionResult> Delete(int id)
+        {
+            var delete = await _repository.Delete(id);
+            if (delete == null)
+            {
+                return NotFound();
+            }
+            return Ok(delete);
+        }
+        [HttpPost]
+        public async Task<ActionResult> Post(DeptModel entity)
+        {
+            await _repository.Post(entity);
+            return CreatedAtAction("Get", new { Id = entity.Id }, entity);
         }
     }
 }

@@ -5,11 +5,13 @@ using System.Threading.Tasks;
 using API.Base;
 using API.Model;
 using API.Repository.Data;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace API.Controllers
 {
+    [Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class EmpController : BaseController<EmpModel, EmpRepository>
@@ -19,25 +21,31 @@ namespace API.Controllers
         {
             this._repository = empRepository;
         }
+        [HttpPost]
+        public async Task<ActionResult> Post(EmpModel entity)
+        {
+            await _repository.Post(entity);
+            return CreatedAtAction("Get", new { Email = entity.Email }, entity);
+        }
         [HttpGet]
         public async Task<IEnumerable<EmpVM>> Get()
         {
             return await _repository.GetAll();
         }
-        [HttpGet("{id}")]
-        public async Task<ActionResult<EmpVM>> Get(int id)
+        [HttpGet("{email}")]
+        public async Task<ActionResult<EmpVM>> Get(string email)
         {
-            var get = await _repository.GetById(id);
+            var get = await _repository.GetById(email);
             if (get == null)
             {
                 return NotFound();
             }
             return Ok(get);
         }
-        [HttpPut("{Id}")]
-        public async Task<ActionResult> Put(int id, EmpModel entity)
+        [HttpPut("{email}")]
+        public async Task<ActionResult> Put(string email, EmpModel entity)
         {
-            var put = await _repository.Get(id);
+            var put = await _repository.Get(email);
             if (put == null)
             {
                 return NotFound();
@@ -45,21 +53,22 @@ namespace API.Controllers
             put.FirstName = entity.FirstName;
             put.LastName = entity.LastName;
             put.DeptModelId = entity.DeptModelId;
-            put.Email = entity.Email;
             put.Address = entity.Address;
             put.PhoneNumber = entity.PhoneNumber;
             put.BirthDate = entity.BirthDate;
             put.UpdateDate = DateTimeOffset.Now;
             await _repository.Put(put);
             return Ok("Update Successfully");
-
-
-            //if (id != entity.Id)
-            //{
-            //    return BadRequest();
-            //}
-            //await _repository.Put(entity);
-            //return Ok("Update Successfully");
+        }
+        [HttpDelete("{email}")]
+        public async Task<ActionResult> Delete(string email)
+        {
+            var delete = await _repository.Delete2(email);
+            if (delete == null)
+            {
+                return NotFound();
+            }
+            return Ok(delete);
         }
     }
 }

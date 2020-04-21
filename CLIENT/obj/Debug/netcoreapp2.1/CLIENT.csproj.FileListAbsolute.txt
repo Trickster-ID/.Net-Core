@@ -1,3 +1,8 @@
+D:\VisualBC\ASP.NET\CLIENT\obj\Debug\netcoreapp2.1\CLIENT.csproj.CoreCompileInputs.cache
+D:\VisualBC\ASP.NET\CLIENT\obj\Debug\netcoreapp2.1\CLIENT.RazorAssemblyInfo.cache
+D:\VisualBC\ASP.NET\CLIENT\obj\Debug\netcoreapp2.1\CLIENT.RazorAssemblyInfo.cs
+D:\VisualBC\ASP.NET\CLIENT\obj\Debug\netcoreapp2.1\CLIENT.AssemblyInfoInputs.cache
+D:\VisualBC\ASP.NET\CLIENT\obj\Debug\netcoreapp2.1\CLIENT.AssemblyInfo.cs
 D:\VisualBC\ASP.NET\CLIENT\bin\Debug\netcoreapp2.1\appsettings.Development.json
 D:\VisualBC\ASP.NET\CLIENT\bin\Debug\netcoreapp2.1\appsettings.json
 D:\VisualBC\ASP.NET\CLIENT\bin\Debug\netcoreapp2.1\Properties\launchSettings.json
@@ -11,11 +16,6 @@ D:\VisualBC\ASP.NET\CLIENT\bin\Debug\netcoreapp2.1\CLIENT.Views.pdb
 D:\VisualBC\ASP.NET\CLIENT\bin\Debug\netcoreapp2.1\API.dll
 D:\VisualBC\ASP.NET\CLIENT\bin\Debug\netcoreapp2.1\API.pdb
 D:\VisualBC\ASP.NET\CLIENT\obj\Debug\netcoreapp2.1\CLIENT.csprojAssemblyReference.cache
-D:\VisualBC\ASP.NET\CLIENT\obj\Debug\netcoreapp2.1\CLIENT.csproj.CoreCompileInputs.cache
-D:\VisualBC\ASP.NET\CLIENT\obj\Debug\netcoreapp2.1\CLIENT.RazorAssemblyInfo.cache
-D:\VisualBC\ASP.NET\CLIENT\obj\Debug\netcoreapp2.1\CLIENT.RazorAssemblyInfo.cs
-D:\VisualBC\ASP.NET\CLIENT\obj\Debug\netcoreapp2.1\CLIENT.AssemblyInfoInputs.cache
-D:\VisualBC\ASP.NET\CLIENT\obj\Debug\netcoreapp2.1\CLIENT.AssemblyInfo.cs
 D:\VisualBC\ASP.NET\CLIENT\obj\Debug\netcoreapp2.1\CLIENT.TagHelpers.input.cache
 D:\VisualBC\ASP.NET\CLIENT\obj\Debug\netcoreapp2.1\CLIENT.TagHelpers.output.cache
 D:\VisualBC\ASP.NET\CLIENT\obj\Debug\netcoreapp2.1\CLIENT.RazorCoreGenerate.cache
@@ -26,6 +26,7 @@ D:\VisualBC\ASP.NET\CLIENT\obj\Debug\netcoreapp2.1\Razor\Views\Home\Contact.csht
 D:\VisualBC\ASP.NET\CLIENT\obj\Debug\netcoreapp2.1\Razor\Views\Home\Index.cshtml.g.cs
 D:\VisualBC\ASP.NET\CLIENT\obj\Debug\netcoreapp2.1\Razor\Views\Home\Privacy.cshtml.g.cs
 D:\VisualBC\ASP.NET\CLIENT\obj\Debug\netcoreapp2.1\Razor\Views\Layouts\Layout.cshtml.g.cs
+D:\VisualBC\ASP.NET\CLIENT\obj\Debug\netcoreapp2.1\Razor\Views\LogReg\Login.cshtml.g.cs
 D:\VisualBC\ASP.NET\CLIENT\obj\Debug\netcoreapp2.1\Razor\Views\Shared\Error.cshtml.g.cs
 D:\VisualBC\ASP.NET\CLIENT\obj\Debug\netcoreapp2.1\Razor\Views\Shared\_CookieConsentPartial.cshtml.g.cs
 D:\VisualBC\ASP.NET\CLIENT\obj\Debug\netcoreapp2.1\Razor\Views\Shared\_Layout.cshtml.g.cs

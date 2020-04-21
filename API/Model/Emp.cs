@@ -12,10 +12,9 @@ namespace API.Model
     public class EmpModel : IEntity
     {
         [Key]
-        public int Id { get; set; }
+        public string Email { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
-        public string Email { get; set; }
         public DateTimeOffset BirthDate { get; set; }
         public string PhoneNumber { get; set; }
         public string Address { get; set; }
@@ -28,26 +27,26 @@ namespace API.Model
         [ForeignKey("DeptModel")]
         public int DeptModelId { get; set; }
 
-        public EmpModel() { }
-        public EmpModel(EmpModel emp) //create
-        {
-            this.FirstName = emp.FirstName;
-            this.FirstName = emp.FirstName;
-            this.CreateDate = DateTimeOffset.Now;
-            this.IsDelete = false;
-        }
+        //public EmpModel() { }
+        //public EmpModel(EmpModel emp) //create
+        //{
+        //    this.FirstName = emp.FirstName;
+        //    this.FirstName = emp.FirstName;
+        //    this.CreateDate = DateTimeOffset.Now;
+        //    this.IsDelete = false;
+        //}
 
-        public void Update(EmpModel emp)
-        {
-            this.FirstName = emp.FirstName;
-            this.FirstName = emp.FirstName;
-            this.UpdateDate = DateTimeOffset.Now;
-        }
+        //public void Update(EmpModel emp)
+        //{
+        //    this.FirstName = emp.FirstName;
+        //    this.FirstName = emp.FirstName;
+        //    this.UpdateDate = DateTimeOffset.Now;
+        //}
 
-        public void Delete()
-        {
-            this.IsDelete = true;
-            this.DeleteDate = DateTimeOffset.Now;
-        }
+        //public void Delete()
+        //{
+        //    this.IsDelete = true;
+        //    this.DeleteDate = DateTimeOffset.Now;
+        //}
     }
 }
