@@ -1,5 +1,5 @@
-﻿@*@using API.Model
-@model LoginUserVM*@
+﻿@using API.Model
+@model LoginVM
 
 @{
     Layout = null;
@@ -39,7 +39,7 @@
     <div class="limiter">
         <div class="container-login100">
             <div class="wrap-login100">
-                <form class="login100-form validate-form" action="@Url.Action("Login", "LR", new { ReturnUrl = ViewBag.ReturnUrl })" method="post">
+                <form class="login100-form validate-form" method="post">
                     @Html.AntiForgeryToken()
                     <span class="login100-form-title p-b-43">
                         Login to continue
@@ -47,14 +47,14 @@
 
 
                     <div class="wrap-input100 validate-input" data-validate="Valid email is required: ex@abc.xyz">
-                        <input class="input100" type="text" name="Email">
+                        <input class="input100" type="text" name="Email" id="Email">
                         <span class="focus-input100"></span>
                         <span class="label-input100">Email</span>
                     </div>
 
 
                     <div class="wrap-input100 validate-input" data-validate="Password is required">
-                        <input class="input100" type="password" name="Password">
+                        <input class="input100" type="password" name="Password" id="Password">
                         <span class="focus-input100"></span>
                         <span class="label-input100">Password</span>
                     </div>
@@ -76,7 +76,7 @@
 
 
                     <div class="container-login100-form-btn">
-                        <button class="login100-form-btn" type="submit">
+                        <button class="login100-form-btn" onclick="Login()" type="submit">
                             Login
                         </button>
                     </div>
@@ -124,6 +124,27 @@
     <script src="~/Login_v18/vendor/countdowntime/countdowntime.js"></script>
     <!--===============================================================================================-->
     <script src="~/Login_v18/js/main.js"></script>
+    <script>
+        function Login() {
+            //debugger;
+            var login = new Object();
+            login.Email = $("#Email").val();
+            login.Password = $("#Password").val();
 
+            $.ajax({
+                url: '/Auth/Login/',
+                type: 'POST',
+                data: login
+            }).then((result) => {
+
+                if (result.statusCode == 200) {
+                    window.location.href = "/Dept/Index";
+                }
+                else {
+                    Swal.fire("Error", "Wrong Username/Password", "error");
+                }
+            })
+        }
+    </script>
 </body>
 </html>

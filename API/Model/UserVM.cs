@@ -24,4 +24,10 @@ namespace API.Model
         public string Address { get; set; }
         public string DeptModelId { get; set; }
     }
+    public class RoleVM
+    {
+        public string Name { get; set; }
+        public string Role { get; set; }
+
+    }
 }

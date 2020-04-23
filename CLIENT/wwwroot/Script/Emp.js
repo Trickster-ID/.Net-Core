@@ -83,7 +83,7 @@ $(document).ready(function () {
             },
             {
                 data: null, render: function (data, type, row) {
-                    return " <td><button type='button' class='btn btn-warning' id='BtnEdit' onclick=GetById('" + row.id + "');>Edit</button> <button type='button' class='btn btn-danger' id='BtnDelete' onclick=Delete('" + row.id + "');>Delete</button ></td >";
+                    return " <td><button type='button' class='btn btn-warning' id='BtnEdit' onclick=GetById('" + row.email + "');>Edit</button> <button type='button' class='btn btn-danger' id='BtnDelete' onclick=Delete('" + row.email + "');>Delete</button ></td >";
                 }
             },
         ]
@@ -121,47 +121,45 @@ document.getElementById("btnadd").addEventListener("click", function () {
     $('#SaveBtn').show();
     $('#UpdateBtn').hide();
     LoadDepartment($('#DepartmentOption'));
+    $('#divemail').show();
+    $('#divpass').show();
 }); //fungsi btn add
 
 function clearscreen() {
-    $('#Id').val('');
+    $('#Email').val('');
+    $('#Password').val('');
     $('#FirstName').val('');
     $('#LastName').val('');
     LoadDepartment($('#DepartmentOption'));
-    $('#Email').val('');
     $('#BirthDate').val('');
     $('#PhoneNumber').val('');
     $('#Address').val('');
 }
 /*--------------------------------------------------------------------------------------------------*/
-function GetById(Id) {
-    //debugger;
+function GetById(Email) {
+    debugger;
     $.ajax({
-        url: "/Emp/GetById/" + Id,
+        url: "/Emp/GetById/" + Email,
         type: "GET",
         contentType: "application/json;charset=utf-8",
         dataType: "json",
         async: false,
+        data: { "Email": Email },
         success: function (result) {
-            //$('#Id').val(result.id);
-            //$('#FirstName').val(result.firstName);
-            //$('#LastName').val(result.lastName);
-            //$('#DepartmentOption').val(result.deptModelId);
-            //$('#Email').val(result.email);
-            //$('#BirthDate').val(result.birthDate);
-            //$('#PhoneNumber').val(result.phoneNumber);
-            //$('#Address').val(result.address);
-            $('#Id').val(result[0].id);
+            debugger;
             $('#FirstName').val(result[0].firstName);
             $('#LastName').val(result[0].lastName);
             $('#DepartmentOption').val(result[0].deptId);
-            $('#Email').val(result[0].email);
             $('#BirthDate').val(moment(result[0].birthDate).format('YYYY-MM-DD'));
             $('#PhoneNumber').val(result[0].phoneNumber);
             $('#Address').val(result[0].address);
             $('#myModal').modal('show');
             $('#UpdateBtn').show();
             $('#SaveBtn').hide();
+            $('#Email').val(result[0].email);
+            $('#Password').val(result[0].password);
+            $('#divemail').hide();
+            $('#divpass').hide();
         },
         error: function (errormessage) {
             alert(errormessage.responsText);
@@ -177,14 +175,15 @@ function Save() {
         }
     });
     var Employee = new Object();
+    Employee.email = $('#Email').val();
+    Employee.Password = $('#Password').val();
     Employee.firstName = $('#FirstName').val();
     Employee.lastName = $('#LastName').val();
     Employee.deptModelId = $('#DepartmentOption').val();
-    Employee.email = $('#Email').val();
     Employee.birthDate = $('#BirthDate').val();
     Employee.phoneNumber = $('#PhoneNumber').val();
     Employee.address = $('#Address').val();
-    if ($('#Name').val() == "") {
+    if ($('#Email').val() == "") {
         Swal.fire({
             icon: 'error',
             title: 'Error',
@@ -197,8 +196,7 @@ function Save() {
             url: '/Emp/Insert',
             data: Employee
         }).then((result) => {
-            //if (result.statuscode == 200) {
-            if (isStatusCodeSuccess = true) {
+            if (result.statusCode === 200 || result.statusCode === 201 || result.statusCode === 204) {
                 Swal.fire({
                     icon: 'success',
                     potition: 'center',
@@ -225,22 +223,21 @@ function Edit() {
         }
     });
     var Employee = new Object();
-    Employee.id = $('#Id').val();
+    Employee.email = $('#Email').val();
+    Employee.Password = $('#Password').val();
     Employee.firstName = $('#FirstName').val();
     Employee.lastName = $('#LastName').val();
     Employee.deptModelId = $('#DepartmentOption').val();
-    Employee.email = $('#Email').val();
     Employee.birthDate = $('#BirthDate').val();
     Employee.phoneNumber = $('#PhoneNumber').val();
     Employee.address = $('#Address').val();
     $.ajax({
         type: 'POST',
-        url: '/Emp/Insert',
+        url: '/Emp/Edit',
         data: Employee
     }).then((result) => {
         debugger;
-        //if (result.statusCode == 200) {
-        if (isStatusCodeSuccess = true) {
+        if (result.statusCode === 200 || result.statusCode === 201 || result.statusCode === 204) {
             Swal.fire({
                 icon: 'success',
                 potition: 'center',
@@ -257,7 +254,7 @@ function Edit() {
     })
 }//function edit
 /*--------------------------------------------------------------------------------------------------*/
-function Delete(Id) {
+function Delete(Email) {
     $.fn.dataTable.ext.errMode = 'none';
     var table = $('#Employee').DataTable({
         "ajax": {
@@ -274,7 +271,7 @@ function Delete(Id) {
             //debugger;
             $.ajax({
                 url: "/Emp/Delete/",
-                data: { Id: Id }
+                data: {Email:Email}
             }).then((result) => {
                 debugger;
                 if (result.statusCode == 200) {

@@ -8,7 +8,7 @@ namespace API.Model
 {
     public class EmpVM
     {
-        public int Id { get; set; }
+        //public int Id { get; set; }
         public string NameEmp { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }

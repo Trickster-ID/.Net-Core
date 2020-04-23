@@ -368,23 +368,8 @@
                         <li>
                             <a class="has-arrow" href="#" aria-expanded="false"><i class="mdi mdi-gauge"></i><span class="hide-menu">Dashboard </span></a>
                             <ul aria-expanded="false" class="collapse">
-                                @*<li><a href="@Url.Action("Index", "Supplier")">Supplier</a></li>
-                                    <li><a href="@Url.Action("Index", "Item")">Item</a></li>*@
                                 <li>@Html.ActionLink("Department", "Index", "Dept")</li>
                                 <li>@Html.ActionLink("Employee", "Index", "Emp")</li>
-
-
-                                @if (User.IsInRole("Admin"))
-                                {
-                                    <li>@Html.ActionLink("Todolist", "Index", "ToDoList")</li>
-                                    <li>@Html.ActionLink("Supplier", "Index", "Supplier")</li>
-                                    <li>@Html.ActionLink("Add Supplier", "Register", "LR", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>
-                                    <li>@Html.ActionLink("Role", "Index", "Role")</li>
-                                }
-                                @if (User.IsInRole("User"))
-                                {
-                                    <li>@Html.ActionLink("Todolist", "Index", "ToDoList")</li>
-                                }
                             </ul>
                         </li>
                         <li>
@@ -595,16 +580,12 @@
                 <!-- End Sidebar navigation -->
             </div>
             <!-- End Sidebar scroll-->
-            <!-- Bottom points-->
-            @*<div class="sidebar-footer">
-                     item
-                    <a href="" class="link" data-toggle="tooltip" title="Settings"><i class="ti-settings"></i></a>
-                     item
-                    <a href="" class="link" data-toggle="tooltip" title="Email"><i class="mdi mdi-gmail"></i></a>
-                     item
-                    <a href="" class="link" data-toggle="tooltip" title="Logout"><i class="mdi mdi-power"></i></a>
-                </div>*@
-            <!-- End Bottom points-->
+             @*Bottom points*@
+        <form class="sidebar-footer" action="@Url.Action("LogOut","Auth")">
+            <!--item-->
+            <button class="link" data-toggle="tooltip" title="Logout"><i class="mdi mdi-power"></i></button>
+        </form>
+             @*End Bottom points*@
         </aside>
         <!-- ============================================================== -->
         <!-- End Left Sidebar - style you can find in sidebar.scss  -->
@@ -753,7 +734,6 @@
 
     <script src="~/Mini AdminPro/assets/plugins/moment/moment.js"></script>
     <script src="~/Script/Sweetalert2.js"></script>
-
     @*<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
         <link href="~/Content/bootstrap.css" rel="stylesheet" />
 

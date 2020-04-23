@@ -9,7 +9,6 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace API.Base
 {
-    [Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class BaseController<TEntity, TRepository> : ControllerBase

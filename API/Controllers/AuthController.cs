@@ -26,14 +26,40 @@ namespace API.Controllers
         private readonly UserManager<IdentityUser> _userManager;
         private readonly IConfiguration _configuration;
         private readonly EmpRepository _employeerepository;
+        private readonly SignInManager<IdentityUser> _signInManager;
+        //private readonly RoleManager<IdentityUser> _roleManager;
 
-        public AuthController(UserManager<IdentityUser> userManager, IConfiguration configuration, EmpRepository employeerepository)
+        public AuthController(
+            UserManager<IdentityUser> userManager, 
+            IConfiguration configuration, 
+            EmpRepository employeerepository, 
+            SignInManager<IdentityUser> signinmanager 
+            //RoleManager<IdentityUser> rolemanager
+            )
         {
             _userManager = userManager;
             _configuration = configuration;
             _employeerepository = employeerepository;
+            _signInManager = signinmanager;
+            //_roleManager = rolemanager;
         }
+        //[HttpPost("AddRole")]
+        //public async Task<IActionResult> AddRole(RoleVM userVM)
+        //{
+        //    if (ModelState.IsValid)
+        //    {
+        //        IdentityRole role = new IdentityRole();
+        //        role.Name = userVM.Role;
 
+        //        var result = await _roleManager.CreateAsync(role);
+        //        if (result.Succeeded)
+        //        {
+        //            return Ok("Role Added");
+        //        }
+        //        return BadRequest("Failed to Added Role");
+        //    }
+        //    return BadRequest(ModelState);
+        //}
         // /register
         [Route("register")]
         [HttpPost]
@@ -59,44 +85,51 @@ namespace API.Controllers
         [HttpPost]
         public async Task<ActionResult> Login([FromBody] LoginVM model)
         {
-            var user = await _userManager.FindByNameAsync(model.Email);
-            using (var connection = new SqlConnection(_configuration.GetConnectionString("MyConnection")))
+            if (ModelState.IsValid)
             {
-                var procName = "SP_GetRole";
-                parameters.Add("@Email", user.Email);
-                IEnumerable<LoginVM> data = connection.Query<LoginVM>(procName, parameters, commandType: CommandType.StoredProcedure);
-                foreach (LoginVM users in data)
+                var result = await _signInManager.PasswordSignInAsync(model.Email, model.Password, false, false);
+                if (result.Succeeded)
                 {
-                    model.Role = users.Role;
-                }
-            }
-            //var user = await _userManager.FindByNameAsync(model.Email);
+                    var user = await _userManager.FindByNameAsync(model.Email);
+                    using (var connection = new SqlConnection(_configuration.GetConnectionString("MyConnection")))
+                    {
+                        var procName = "SP_GetRole";
+                        parameters.Add("@Email", user.Email);
+                        var data = connection.Query<LoginVM>(procName, parameters, commandType: CommandType.StoredProcedure);
+                        foreach (LoginVM users in data)
+                        {
+                            model.Role = users.Role;
+                        }
+                    }
+                    //var user = await _userManager.FindByNameAsync(model.Email);
 
-            if (user != null && await _userManager.CheckPasswordAsync(user, model.Password))
-            {
-                var claim = new[] {
+                    if (user != null && await _userManager.CheckPasswordAsync(user, model.Password))
+                    {
+                        var claim = new[] {
                     new Claim("Email", user.Email),
                     new Claim("Role", model.Role)
                 };
-                var signinKey = new SymmetricSecurityKey(
-                  Encoding.UTF8.GetBytes(_configuration["Jwt:SigningKey"]));
+                        var signinKey = new SymmetricSecurityKey(
+                          Encoding.UTF8.GetBytes(_configuration["Jwt:SigningKey"]));
 
-                int expiryInMinutes = Convert.ToInt32(_configuration["Jwt:ExpiryInMinutes"]);
+                        int expiryInMinutes = Convert.ToInt32(_configuration["Jwt:ExpiryInDays"]);
 
-                var token = new JwtSecurityToken(
-                  issuer: _configuration["Jwt:Site"],
-                  audience: _configuration["Jwt:Site"],
-                  claim,
-                  expires: DateTime.UtcNow.AddMinutes(expiryInMinutes),
-                  signingCredentials: new SigningCredentials(signinKey, SecurityAlgorithms.HmacSha256)
-                );
+                        var token = new JwtSecurityToken(
+                          issuer: _configuration["Jwt:Site"],
+                          audience: _configuration["Jwt:Site"],
+                          claim,
+                          expires: DateTime.UtcNow.AddMinutes(expiryInMinutes),
+                          signingCredentials: new SigningCredentials(signinKey, SecurityAlgorithms.HmacSha256)
+                        );
 
-                return Ok(
-                  new
-                  {
-                      token = new JwtSecurityTokenHandler().WriteToken(token),
-                      expiration = token.ValidTo
-                  });
+                        return Ok(new JwtSecurityTokenHandler().WriteToken(token));
+                          //new
+                          //{
+                          //    token = new JwtSecurityTokenHandler().WriteToken(token),
+                          //    expiration = token.ValidTo
+                          //});
+                    }
+                }
             }
             return Unauthorized();
         }

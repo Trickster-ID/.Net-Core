@@ -53,7 +53,6 @@ namespace API.Repository
 
         public async Task<TEntity> Put(TEntity entity)
         {
-            //entity.CreateDate = DateTimeOffset.;
             entity.UpdateDate = DateTimeOffset.Now;
             _myContext.Entry(entity).State = EntityState.Modified;
             await _myContext.SaveChangesAsync();
