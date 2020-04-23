@@ -3,6 +3,7 @@ var element = $('#DepartmentOption');
 var option = 0;
 var optionName = "";
 $(document).ready(function () {
+    $('#panel1').hide();
     $.ajax({
         url: "/Dept/cloadDepartment",
         type: "GET",

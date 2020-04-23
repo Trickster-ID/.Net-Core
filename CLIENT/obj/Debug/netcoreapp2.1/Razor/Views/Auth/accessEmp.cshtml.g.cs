@@ -66,7 +66,7 @@ using CLIENT.Models;
             WriteLiteral("\r\n<div class=\"table-responsive m-t-40\">\r\n    <div class=\"modal-content\">\r\n        ");
             EndContext();
             BeginContext(176, 1861, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "fc55b33052b14a67ad85ad99f6b0e172", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "3d009a47c56a4072a604b6edbdb4c434", async() => {
                 BeginContext(182, 1848, true);
                 WriteLiteral(@"
             <div class=""modal-header"">
@@ -129,7 +129,7 @@ using CLIENT.Models;
                 WriteLiteral("\r\n    ");
                 EndContext();
                 BeginContext(2082, 40, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("script", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "929574c2bd33413ba38a0e9cd5d8dd7e", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("script", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "9d659db0c5d84cc19a7062ce259959d8", async() => {
                 }
                 );
                 __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();

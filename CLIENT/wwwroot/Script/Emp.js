@@ -299,12 +299,48 @@ function Delete(Email) {
     });
 } //function delete
 
-//$(document).ready(function () {
-//    $.fn.dataTable.ext.errMode = 'none';
-//    $('#Department').DataTable({
-//        dom: 'Bfrtip',
-//        buttons: [
-//            'copy', 'csv', 'excel', 'pdf', 'print'
-//        ]
-//    });
-//});
+$(function Bar() {
+    $.ajax({
+        type: 'GET',
+        url: '/Emp/Chart/',
+        success: function (data) {
+            Morris.Bar({
+                element: 'BarChart',
+                data: $.each(JSON.parse(data), function (index, val) {
+                    debugger;
+                    [{
+                        label: val.label,
+                        value: val.value
+                    }]
+                }),
+                xkey: 'label',
+                ykeys: ['value'],
+                labels: ['Total'],
+                barColors: ['#009efb', '#55ce63', '#2f3d4a'],
+                hideHover: 'auto',
+                gridLineColor: '#eef0f2',
+                resize: true
+            });
+        }
+    })
+});
+
+$(function Donut() {
+    $.ajax({
+        type: 'GET',
+        url: '/Emp/Chart/',
+        success: function (data) {
+            Morris.Donut({
+                element: 'DonutChart',
+                data: $.each(JSON.parse(data), function (index, val) {
+                    [{
+                        label: val.label,
+                        value: val.value
+                    }]
+                }),
+                resize: true,
+                colors: ['#009efb', '#55ce63', '#2f3d4a']
+            });
+        }
+    })
+});

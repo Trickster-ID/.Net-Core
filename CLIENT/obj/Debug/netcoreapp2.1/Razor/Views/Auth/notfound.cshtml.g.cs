@@ -65,7 +65,7 @@ using CLIENT.Models;
             WriteLiteral("\r\n<!DOCTYPE html>\r\n<html lang=\"en\">\r\n\r\n");
             EndContext();
             BeginContext(99, 990, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("head", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "266cb33619bd4e18b6c0dc67f6911803", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("head", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "4de65de7cb654d868b878e05a39c118a", async() => {
                 BeginContext(105, 491, true);
                 WriteLiteral(@"
     <meta charset=""utf-8"">
@@ -82,7 +82,7 @@ using CLIENT.Models;
     ");
                 EndContext();
                 BeginContext(596, 85, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("link", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "a956f25abb844660958dbbd2e8036643", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("link", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "bdf704b3c3a54f959d85bdca7e41e57d", async() => {
                 }
                 );
                 __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -126,7 +126,7 @@ using CLIENT.Models;
             WriteLiteral("\r\n\r\n");
             EndContext();
             BeginContext(1093, 450, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("body", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "593d3e90d93b43f1ae8c26c32a85821d", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("body", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "f0df699831944f048348f14b1231eba7", async() => {
                 BeginContext(1099, 356, true);
                 WriteLiteral(@"
 

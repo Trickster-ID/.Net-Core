@@ -1,5 +1,6 @@
 ﻿var datenow = new Date();
 $(document).ready(function () {
+    $('#panel1').show();
     table = $('#Department').dataTable({
         "ajax": {
             url: "/Dept/cloadDepartment",

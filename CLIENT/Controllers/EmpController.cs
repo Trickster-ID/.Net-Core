@@ -95,5 +95,30 @@ namespace CLIENT.Controllers
             var result = client.DeleteAsync("Emp/" + Email).Result;
             return Json(result);
         }
+        public JsonResult Chart()
+        {
+            client.DefaultRequestHeaders.Add("Authorization", HttpContext.Session.GetString("JWTToken"));
+            IEnumerable<Chartmodel> chartInfo = null;
+            List<Chartmodel> chartData = new List<Chartmodel>();
+            var responseTask = client.GetAsync("Emp/Chart");
+            responseTask.Wait();
+            var result = responseTask.Result;
+            if (result.IsSuccessStatusCode) 
+            {
+                var readTask = result.Content.ReadAsAsync<IList<Chartmodel>>();
+                readTask.Wait();
+                chartInfo = readTask.Result;
+                foreach (var item in chartInfo)
+                {
+                    Chartmodel data = new Chartmodel();
+                    data.label = item.label;
+                    data.value = item.value;
+                    chartData.Add(data);
+                }
+                var json = JsonConvert.SerializeObject(chartData, Formatting.Indented);
+                return Json(json);
+            }
+            return Json("internal server error");
+        }
     }
 }

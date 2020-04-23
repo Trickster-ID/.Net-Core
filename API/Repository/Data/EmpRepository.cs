@@ -73,6 +73,14 @@ namespace API.Repository.Data
             await _myContext.SaveChangesAsync();
             return entity;
         }
-
+        public async Task<IEnumerable<Chartmodel>> GetCount()
+        {
+            using (var connection = new SqlConnection(_configuration.GetConnectionString("MyConnection")))
+            {
+                var procName = "SP_GetCountDept";
+                var data = await connection.QueryAsync<Chartmodel>(procName, commandType: CommandType.StoredProcedure);
+                return data;
+            }
+        }
     }
 }

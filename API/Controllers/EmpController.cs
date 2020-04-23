@@ -70,5 +70,10 @@ namespace API.Controllers
             }
             return Ok(delete);
         }
+        [HttpGet("Chart")]
+        public async Task<IEnumerable<Chartmodel>> Chart()
+        {
+            return await _repository.GetCount();
+        }
     }
 }
